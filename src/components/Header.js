@@ -12,15 +12,15 @@ import { Box, HStack } from '@chakra-ui/react';
 const socials = [
 	{
 		icon: faEnvelope,
-		url: 'mailto: hello@example.com',
+		url: 'mailto: jasonbm76@gmail.com',
 	},
 	{
 		icon: faGithub,
-		url: 'https://github.com',
+		url: 'https://github.com/Jasonbm76',
 	},
 	{
 		icon: faLinkedin,
-		url: 'https://www.linkedin.com',
+		url: 'https://www.linkedin.com/in/jasonbm76/',
 	},
 	{
 		icon: faMedium,
@@ -44,30 +44,26 @@ const Header = () => {
 		}
 	};
 
-	// Handle header show/hide animation depending on the scroll direction
 	const headerRef = useRef(null);
 
 	useEffect(() => {
 		let prevScrollPos = window.scrollY;
 
-		// Handle scroll events
 		const handleScroll = () => {
 			const currScrollPos = window.scrollY;
 			const currHeaderElement = headerRef.current;
 
 			if (!currHeaderElement) return;
 
-			if (prevScrollPos > currScrollPos)
-				currHeaderElement.style.transform = 'translateY(0)';
-			else currHeaderElement.style.transform = 'translateY(-200px)';
+			prevScrollPos > currScrollPos
+				? (currHeaderElement.style.transform = 'translateY(0)')
+				: (currHeaderElement.style.transform = 'translateY(-200px)');
 
 			prevScrollPos = currScrollPos;
 		};
 
-		// Set up listeners for the scroll event
 		window.addEventListener('scroll', handleScroll);
 
-		// Remove listeners for the scroll event
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
@@ -95,7 +91,6 @@ const Header = () => {
 					justifyContent='space-between'
 					alignItems='center'>
 					<nav>
-						{/* Add social media links based on the `socials` data */}
 						<HStack spacing={10}>
 							{socials.map(({ icon, url }) => (
 								<a
@@ -115,7 +110,6 @@ const Header = () => {
 					</nav>
 					<nav>
 						<HStack spacing={8}>
-							{/* Add links to Projects and Contact me section */}
 							<a
 								href='#projects'
 								onClick={handleClick('projects')}>
