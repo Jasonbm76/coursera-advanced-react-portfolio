@@ -13,7 +13,7 @@ const Footer = () => {
 					alignItems='center'
 					maxWidth='1024px'
 					height={16}>
-					<p>Jason Murphy • © 2024</p>
+					<p>Jason • © 2024</p>
 				</Flex>
 			</footer>
 		</Box>
